@@ -9,6 +9,9 @@ function App() {
         <p>
           Branch testing for react app and github 
           Can begin adding code in our own seperate branches. Still need to figure out merging in to main
+          <br>
+          Another Branch
+          </br>
         </p>
         <a
           className="App-link"

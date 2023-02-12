@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tetris game in JavaScript">
+  <meta name="Authors" content="Hasib Subasic, Paul Dennis, Mersed Subasic and Pardeep Takhar">
+  <title>Tetris</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+  <!--
+    This is the main HTML file for Tetris game
+  -->
+<body>
+  <div class="tetrisgrid">
+    <canvas id="tetrisboard" class="tetris-game-board"></canvas>
+    <div class="tetris-right-column">
+      <div>
+        <h1>Tetris</h1>
+        <p>Score: <span id="score">0</span></p>
+        <p>Lines: <span id="lines">0</span></p>
+        <p>Level: <span id="level">0</span></p>
+        <canvas id="tetrisnext" class="tetris-next"></canvas>
+      </div>
+      <button onclick="play_tetris()" class="play-button">Play</button>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="scripts/tetris_constants.js" defer></script>
+<script type="text/javascript" src="scripts/tetris_board.js"     defer></script>
+<script type="text/javascript" src="scripts/tetris_pieces.js"    defer></script>
+<script type="text/javascript" src="scripts/tetris_main.js"      defer></script>
+</html>

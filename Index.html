@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +11,39 @@
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="index.css">
 </head>
-  <!--
+<!--
     This is the main HTML file for Tetris game
   -->
+
 <body>
-  <div class="tetrisgrid">
+  <div class="box">
+    <canvas class="game-box"></canvas>
+
+    <div>
+      <h1>TETRIS</h1>
+      <button onclick="play()" class="play-button">Play</button>
+      <button onclick="play()" class="pause-button">Pause</button>
+
+      <p>User: x Score: <span id="score">0</span></p>
+      <p>Highest Score: <span id="level">0</span></p>
+
+      <div class="upcoming">
+        <p>Upcoming: <span id="upcoming"></span></p>
+      </div>
+
+      <div class="links">
+        <a href="howtoplay.html">How to play </a>
+        <a href="profile.html">Profile </a>
+        <a href="#">Login/LogOut </a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!--
+<div class="tetrisgrid">
     <canvas id="tetrisboard" class="tetris-game-board"></canvas>
     <div class="tetris-right-column">
       <div>
@@ -26,10 +55,12 @@
       </div>
       <button onclick="play_tetris()" class="play-button">Play</button>
     </div>
-  </div>
+  </div> -->
 </body>
+
 <script type="text/javascript" src="src/tetris_constants.js" defer></script>
-<script type="text/javascript" src="src/tetris_board.js"     defer></script>
-<script type="text/javascript" src="src/tetris_pieces.js"    defer></script>
-<script type="text/javascript" src="src/tetris_main.js"      defer></script>
+<script type="text/javascript" src="src/tetris_board.js" defer></script>
+<script type="text/javascript" src="src/tetris_pieces.js" defer></script>
+<script type="text/javascript" src="src/tetris_main.js" defer></script>
+
 </html>

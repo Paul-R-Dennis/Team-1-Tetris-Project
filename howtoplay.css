@@ -1,0 +1,23 @@
+h2 {
+    font-size: 30px;
+    padding: 40px;
+    margin-left: 300px;
+}
+
+h1 {
+
+    margin-left: 350px;
+    font-size: 30px;
+}
+
+a {
+
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+
+}
+
+.links {
+    text-align: center;
+}

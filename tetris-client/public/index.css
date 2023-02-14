@@ -1,25 +1,43 @@
-* {
-  font-family: 'Press Start 2P', cursive;
-}
-
-.tetrisgrid {
+.box {
   display: grid;
-  grid-template-columns: 320px 200px;
+  grid-template-columns: 1020px 400px;
+  padding: 100px;
+  font-size: 20px;
 }
 
-.tetris-right-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+
+.game-box {
+  border: solid 4px black;
+  width: 100px;
+  margin-left: 288px;
+  margin-top: 20px;
+  padding: 300px;
 }
 
-.tetris-game-board {
-  border: solid 2px;
+.upcoming {
+  height: 260px;
+  width: 230px;
+  border: solid 3px black;
+  ;
 }
 
 .play-button {
-  background-color: #4caf50;
-  font-size: 16px;
-  padding: 15px 30px;
+  width: 120px;
+  background-color: green;
   cursor: pointer;
+}
+
+.pause-button {
+  width: 120px;
+  background-color: red;
+  cursor: pointer;
+}
+
+a {
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+  display: table-caption;
+
 }

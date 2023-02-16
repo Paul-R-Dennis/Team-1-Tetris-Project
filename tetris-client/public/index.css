@@ -1,15 +1,16 @@
 .box {
   display: grid;
-  grid-template-columns: 1020px 400px;
+  grid-template-columns: 1100px 300px;
   padding: 100px;
   font-size: 20px;
 }
 
 
 
-.game-box {
+.tetris-game-board {
   border: solid 4px black;
-  width: 100px;
+  height: 475px;
+  width: 50px;
   margin-left: 288px;
   margin-top: 20px;
   padding: 300px;

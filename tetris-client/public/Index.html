@@ -17,18 +17,19 @@
 
 <body>
   <div class="box">
-    <canvas class="game-box"></canvas>
+    <canvas id="tetrisboard" class="tetris-game-board"></canvas>
 
     <div>
       <h1>TETRIS</h1>
-      <button onclick="play()" class="play-button">Play</button>
-      <button onclick="play()" class="pause-button">Pause</button>
+      <button onclick="play_tetris()"  class="play-button">Play</button>
+      <button onclick="pause_tetris()" class="pause-button">Pause</button>
 
       <p>User: x Score: <span id="score">0</span></p>
       <p>Highest Score: <span id="level">0</span></p>
 
       <div class="upcoming">
         <p>Upcoming: <span id="upcoming"></span></p>
+        <canvas id="tetrisnext" class="tetris-next"></canvas>
       </div>
 
       <div class="links">
@@ -36,7 +37,6 @@
         <a href="profile.html">Profile </a>
         <a href="#">Login/LogOut </a>
       </div>
-
     </div>
 
   </div>

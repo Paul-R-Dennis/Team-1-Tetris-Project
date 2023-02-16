@@ -1,6 +1,6 @@
 // GameBoard class provides all the functionality of the game board
 // 
-class Gameboard {
+class Tetris_board {
   ctx;
   ctxNext;
 

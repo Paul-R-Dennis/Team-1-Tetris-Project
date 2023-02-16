@@ -1,4 +1,4 @@
-class Piece {  
+class Tetris_piece {  
   constructor(ctx) {
     this.ctx = ctx;
     this.color = 'blue';

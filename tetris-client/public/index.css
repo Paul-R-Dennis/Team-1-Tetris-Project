@@ -1,19 +1,19 @@
 .box {
-  display: grid;
-  grid-template-columns: 1100px 300px;
-  padding: 100px;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  padding: 1vh;
   font-size: 20px;
 }
 
+/* Tetris Board */
 .tetris-game-board {
   border: solid 4px black;
-  /*
-  height: 475px;
-  width: 50px;
-  margin-left: 288px;
-  margin-top: 20px;
-  padding: 100px;
-  */
+  align-items: end;
+}
+
+/* Info Board */
+.info-board {
+  padding: 10px;
 }
 
 .upcoming {

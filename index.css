@@ -5,15 +5,15 @@
   font-size: 20px;
 }
 
-
-
 .tetris-game-board {
   border: solid 4px black;
+  /*
   height: 475px;
   width: 50px;
   margin-left: 288px;
   margin-top: 20px;
-  padding: 300px;
+  padding: 100px;
+  */
 }
 
 .upcoming {

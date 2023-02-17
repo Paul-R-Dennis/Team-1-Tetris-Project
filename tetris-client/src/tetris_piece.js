@@ -9,7 +9,7 @@ class Tetris_piece {
     ];
     
     // Starting position.
-    this.x = 5;
+    this.x = 4;
     this.y = 0;
   }
 

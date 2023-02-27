@@ -1,6 +1,6 @@
 const gamecanvas = document.getElementById('tetrisboard');             // Gris Context
 const gamectx    = gamecanvas.getContext('2d');                        // 2D context
-const gamenext       = document.getElementById('tetrisnrxt');          // Gris Context
+const gamenext       = document.getElementById('tetrisnext');          // Gris Context
 const gamectxnext    = gamecanvas.getContext('2d');                    // 2D context
 
 gamectx.canvas.width  = COLS * BLOCK_SIZE;                             // Set GRID width  - multiple of columns

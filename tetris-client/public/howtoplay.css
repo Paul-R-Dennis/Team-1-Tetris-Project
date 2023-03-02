@@ -1,10 +1,11 @@
-p {
+.modal-content p {
     font-size: 40px;
     display: table-caption;
     width: 639px;
     margin-left: 613px;
-    margin-top: 328px;
+    margin-top: 28px;
     border: solid 4px black;
+    background-color: aliceblue;
 }
 
 a {
@@ -13,8 +14,22 @@ a {
     text-decoration: none;
     color: black;
 
+
 }
 
 .links {
     text-align: center;
+}
+
+.rules p {
+    background-color: yellow;
+    display: table-cell;
+}
+
+h1 {
+    text-align: center;
+}
+
+* {
+    background-color: rgb(101, 255, 214);
 }

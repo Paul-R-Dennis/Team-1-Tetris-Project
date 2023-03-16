@@ -32,12 +32,18 @@
         <canvas id="tetrisnext" class="tetris-next"></canvas>
       </div>
 
-      <div class="links">
-        <a href="howtoplay.html">How to play </a>
-        <a href="profile.html">Profile </a>
-        <a href="../firebase/login.html">Login</a>
-        <a href="../firebase/logout.html">Logout</a>
-      </div>
+      
+        <div>
+          <ul>
+            <li>
+              <a href="howtoplay.html">How to Play</a>
+            </li>
+            <li>
+              <a href="profile.html">Profile</a>
+            </li>
+            <li>
+              <a href="../firebase/login.html">Login</a>
+            </li>
     </div>
 
   </div>
@@ -63,5 +69,31 @@
 <script type="application/javascript" src="../src/tetris_board.js"     defer></script>
 <script type="application/javascript" src="../src/tetris_piece.js"     defer></script>
 <script type="application/javascript" src="../src/tetris_main.js"      defer></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script>
+       
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDvPpc-1bT0OqmfkRH4nowl-7ffP140yww",
+    authDomain: "finaltetrisgamelogin.firebaseapp.com",
+    databaseURL: "https://finaltetrisgamelogin-default-rtdb.firebaseio.com",
+    projectId: "finaltetrisgamelogin",
+    storageBucket: "finaltetrisgamelogin.appspot.com",
+    messagingSenderId: "323557137776",
+    appId: "1:323557137776:web:0a896cdea2d42c0e5083b5",
+    measurementId: "G-EGB8S4KWPR"
+    };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  //auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const user = auth.currentUser;
+  db.settings({timestampsInSnapshots: true});
+</script>
+<script src="app.js"></script>
 </html>

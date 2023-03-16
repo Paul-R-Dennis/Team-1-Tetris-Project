@@ -4,12 +4,15 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, si
 const firebaseConfig = {
     apiKey: "AIzaSyDvPpc-1bT0OqmfkRH4nowl-7ffP140yww",
     authDomain: "finaltetrisgamelogin.firebaseapp.com",
+    databaseURL: "https://finaltetrisgamelogin-default-rtdb.firebaseio.com",
     projectId: "finaltetrisgamelogin",
     storageBucket: "finaltetrisgamelogin.appspot.com",
     messagingSenderId: "323557137776",
-    appId: "1:323557137776:web:31381bfeac03ef3f5083b5"
+    appId: "1:323557137776:web:31381bfeac03ef3f5083b5",
+    measurementId: "G-EGB8S4KWPR"
   };
 
+  //Initializes Firebase
  const app = initializeApp(firebaseConfig);
  const auth = getAuth(app);
 
@@ -25,6 +28,7 @@ document.getElementById("signbtn").addEventListener('click', function(){
 
 });
 
+// login
   document.getElementById("loginButton").addEventListener('click', function(){
    const loginEmail= document.getElementById("loginEmail").value;
    const loginPassword =document.getElementById("loginPassword").value;
@@ -32,10 +36,12 @@ document.getElementById("signbtn").addEventListener('click', function(){
 
    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
   .then((userCredential) => {
+    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+    console.log(userCredential.user);
     const user = userCredential.user;
     document.getElementById("result-box").style.display="inline";
-     document.getElementById("logindiv").style.display="none";
-     window.location.replace("../public/index.html");
+    document.getElementById("logindiv").style.display="none";
+    //window.location.replace("../public/index.html");
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -47,7 +53,7 @@ document.getElementById("signbtn").addEventListener('click', function(){
   });
 });
 
-
+//sign up
   document.getElementById("signupButton").addEventListener('click', function(){
 
    const signupEmail= document.getElementById("signupEmail").value;
@@ -55,11 +61,13 @@ document.getElementById("signbtn").addEventListener('click', function(){
    const username =document.getElementById("name").value;
 
    createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    document.getElementById("result-box").style.display="inline";
-     document.getElementById("signupdiv").style.display="none";
-     window.location.replace("../public/index.html");
+  .then(userCredential => {
+    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+    console.log(userCredential.user);
+    // const user = userCredential.user;
+    // document.getElementById("result-box").style.display="inline";
+    //  document.getElementById("signupdiv").style.display="none";
+    //window.location.replace("../public/index.html");
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -70,13 +78,18 @@ document.getElementById("signbtn").addEventListener('click', function(){
   });
 });
 
+//logout
+// document.getElementById("logoutButton").addEventListener('click', function(){
+//    signOut(auth).then(() => {
+//       document.getElementById("result-box").style.display="none";
+//         document.getElementById("logindiv").style.display="inline";
+//    }).catch((error) => {
+//       document.getElementById("result").innerHTML="Sorry ! <br>"+errorMessage;
+//    });
 
-document.getElementById("logoutButton").addEventListener('click', function(){
-  signOut(auth).then(() => {
-     document.getElementById("result-box").style.display="none";
-       document.getElementById("logindiv").style.display="inline";
-  }).catch((error) => {
-     document.getElementById("result").innerHTML="Sorry ! <br>"+errorMessage;
-  });
+//  });
 
-});
+//return home
+document.getElementById("home").addEventListener('click', function(){
+  window.location.replace("../public/index.html");
+})

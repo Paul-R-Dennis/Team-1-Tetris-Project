@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="profile.css" />
+    <script type="module" src="profile.js"></script>
 </head>
 
 <body>
     <h2>Profile</h2>
-    <h1>Email: kafjdlfajkdljaflkjda</h1>
+    <h1 id="email"></h1>
     <h1>Username: hfdalksjkf</h1>
     <h1>Change Password</h1>
     <h1>Highest Score</h1>
@@ -23,5 +24,9 @@
     </div>
 
 </body>
+
+<script>
+    document.getElementById("email").innerHTML = "Email: " + email;
+</script>
 
 </html>

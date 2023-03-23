@@ -44,6 +44,9 @@
             <li>
               <a href="../firebase/login.html">Login</a>
             </li>
+            <li>
+              <a href="#" id="logout">Logout</a>
+            </li>
     </div>
 
   </div>
@@ -73,7 +76,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script>
-       
+  
 
   const firebaseConfig = {
     apiKey: "AIzaSyDvPpc-1bT0OqmfkRH4nowl-7ffP140yww",
@@ -95,5 +98,6 @@
   const user = auth.currentUser;
   db.settings({timestampsInSnapshots: true});
 </script>
-<script src="app.js"></script>
+<script src="app.js" type="module"></script>
+<script src="profile.js" type="module"></script>
 </html>

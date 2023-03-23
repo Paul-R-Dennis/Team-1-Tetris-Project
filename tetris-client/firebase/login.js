@@ -62,6 +62,9 @@ document.getElementById("signbtn").addEventListener('click', function(){
 
    createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
   .then(userCredential => {
+    user.updateProfile({
+      displayName: username
+    });
     // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
     console.log(userCredential.user);
     // const user = userCredential.user;
@@ -73,7 +76,7 @@ document.getElementById("signbtn").addEventListener('click', function(){
     const errorMessage = error.message;
     document.getElementById("result-box").style.display="inline";
      document.getElementById("signupdiv").style.display="none";
-     document.getElementById("result").innerHTML="Sorry ! <br>"+errorMessage;
+     //document.getElementById("result").innerHTML="Sorry ! <br>"+errorMessage;
 
   });
 });

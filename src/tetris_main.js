@@ -8,6 +8,9 @@ gamectx.canvas.height = ROWS * BLOCK_SIZE;                             // Set GR
 gamectx.scale(BLOCK_SIZE, BLOCK_SIZE);                                 // Scale the blocks
 
 let gameboard = new Tetris_board(gamectx, gamectxnext);                // Create Game board object
+let gamestatus = new Tetris_status();                                  // Create Game status object
+gamestatus.set_playbutton_status();                                    // Set the play button status to enabled & pause button to disabled
+gamestatus.set_login_status();                                         // Set the login status to enabled
 
 
 
@@ -23,6 +26,7 @@ let gameboard = new Tetris_board(gamectx, gamectxnext);                // Create
 
 
 function play_tetris() {
+  gamestatus.set_pausebutton_status();                                 // Set the play button status to disabled & pause button to enabled
   //console.log("Play Tetris --- Start");
   gameboard.reset();                                                   // Reset Game board to initial state
   //console.table(gameboard.grid);                                     // Debugging --- Show gameboard grid
@@ -34,4 +38,10 @@ function play_tetris() {
 
 
   //console.log("Play Tetris --- End");
+}
+
+function login_tetris() {
+  window.location.href = "../login.html";
+  
+
 }

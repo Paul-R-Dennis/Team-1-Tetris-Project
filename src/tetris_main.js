@@ -43,11 +43,14 @@ function play_tetris() {
 
   let set_interval_id = setInterval(newGameState,500);                 // Start the GAME !!!!!
 
-
 }
 
 
+function pause_tetris() {
+    gamestatus.set_playbutton_status();                                // Set the play button status to disabled & pause button to enabled
 
+
+}
 
 
 
@@ -80,6 +83,8 @@ function newGameState(){
         renderPiece();
     }
     moveDown();
+
+    
 }
 
 function checkGrid(){
@@ -106,7 +111,6 @@ function checkGrid(){
     }else if(count>3){
         score+=100
     }
-    // scoreboard.innerText = "Score: " + score;
     scoreboard.innerText = score;
 }
 

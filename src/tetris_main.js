@@ -1,6 +1,6 @@
-const gamecanvas = document.getElementById('tetrisboard');             // Gris Context
+const gamecanvas = document.getElementById('tetrisboard');             // Grid Context
 const gamectx    = gamecanvas.getContext('2d');                        // 2D context
-const gamenext       = document.getElementById('tetrisnext');          // Gris Context
+const gamenext       = document.getElementById('tetrisnext');          // Grid Context
 const gamectxnext    = gamenext.getContext('2d');                      // 2D context
 
 gamectx.canvas.width  = COLS * BLOCK_SIZE;                             // Set GRID width  - multiple of columns
@@ -131,7 +131,11 @@ function randomPieceObject(){
     let ran = Math.floor(Math.random()*7);
     let piece = SHAPES[ran];
     let colorIndex = ran+1;
-    let x = 4;
+    let minx = 0; maxx = 7;
+    let ranxloc = (Math.floor(Math.random() * (maxx-minx+1)) + minx);  // Start piece in random position
+    let x = ranxloc;
+    //let x = 4;
+    // upcoming.innerText = ranxloc;
     let y = 0;
     return {piece,colorIndex,x,y}
 }

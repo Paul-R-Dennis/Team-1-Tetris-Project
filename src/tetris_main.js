@@ -14,19 +14,20 @@ let scoreboard = document.querySelector("#score");
 let grid = generateGrid();
 let fallingPieceObj = null;
 let score = 0;
+let set_interval_id = null;                                            // Game interval ID - needs to be global - multiple functions need it
 
 gamestatus.set_playbutton_status();                                    // Set the play button status to enabled & pause button to disabled
 gamestatus.set_login_status();                                         // Set the login status to enabled
 
 document.addEventListener("keydown",function(e){
     let key = e.key;
-    if(key == "ArrowDown"){
+    if(key == "ArrowDown" && gamestatus.get_is_game_in_play_mode()){
         moveDown();
-    }else if(key == "ArrowLeft"){
+    }else if(key == "ArrowLeft" && gamestatus.get_is_game_in_play_mode()){
         moveLeft();
-    }else if(key == "ArrowRight"){
+    }else if(key == "ArrowRight" && gamestatus.get_is_game_in_play_mode()){
         moveRight();
-    }else if(key == "ArrowUp"){
+    }else if(key == "ArrowUp" && gamestatus.get_is_game_in_play_mode()){
         rotate();
     }
 })
@@ -41,7 +42,7 @@ function play_tetris() {
 
   gamestatus.set_pausebutton_status();                                 // Set the play button status to disabled & pause button to enabled
 
-  let set_interval_id = setInterval(newGameState,500);                 // Start the GAME !!!!!
+  set_interval_id = setInterval(newGameState,500);                     // Start the GAME !!!!!
 
 }
 
@@ -49,6 +50,7 @@ function play_tetris() {
 function pause_tetris() {
     gamestatus.set_playbutton_status();                                // Set the play button status to disabled & pause button to enabled
 
+    clearInterval(set_interval_id);                                    // Pause THE GAME !!!!!
 
 }
 
@@ -82,10 +84,10 @@ function newGameState(){
         fallingPieceObj = randomPieceObject();
         renderPiece();
     }
+   
     moveDown();
 
-    
-}
+   }
 
 function checkGrid(){
     let count = 0;

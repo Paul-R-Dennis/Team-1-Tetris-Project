@@ -24,7 +24,7 @@ let set_interval_id = null;                                            // Game i
 gamestatus.set_playbutton_status();                                    // Set the play button status to enabled & pause button to disabled
 gamestatus.set_login_status();                                         // Set the login status to enabled
 
-document.addEventListener("keydown",function(e){
+document.addEventListener("keydown",function(e){                       // 
     let key = e.key;
     if(key == "ArrowDown" && gamestatus.get_is_game_in_play_mode()){
         moveDown();
@@ -162,10 +162,10 @@ function renderPiece(){
     }
 }
 
-function rendernextPiece(){
+function rendernextPiece(){                                            // Render next piece
     gamectxnext.clearRect(0, 0, gamectxnext.canvas.width, gamectxnext.canvas.height); //Clear next piece grid
     let piece = nextPieceObj.piece;
-    for(let i=0;i<piece.length;i++){
+    for(let i=0;i<piece.length;i++){                                   // Render next piece by looping through the piece grid
         for(let j=0;j<piece[i].length;j++){
             if(piece[i][j] == 1){
             gamectxnext.fillStyle = COLORS[nextPieceObj.colorIndex];

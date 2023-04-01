@@ -7,13 +7,18 @@ gamectx.canvas.width  = COLS * BLOCK_SIZE;                             // Set GR
 gamectx.canvas.height = ROWS * BLOCK_SIZE;                             // Set GRID height - multiple of rows
 gamectx.scale(BLOCK_SIZE, BLOCK_SIZE);                                 // Scale the blocks
 
+gamectxnext.canvas.width  = NEXTCOLS * BLOCK_SIZE;                     // Set next piece GRID width  - multiple of columns
+gamectxnext.canvas.height = NEXTROWS * BLOCK_SIZE;                     // Set next piece GRID height - multiple of rows
+gamectxnext.scale(BLOCK_SIZE, BLOCK_SIZE);                             // Scale the blocks
+
 let gameboard = new Tetris_board(gamectx, gamectxnext);                // Create Game board object
 let gamestatus = new Tetris_status();                                  // Create Game status object
 let scoreboard = document.querySelector("#score");
 
-let grid = generateGrid();
-let fallingPieceObj = null;
-let score = 0;
+let grid = generateGrid();                                             // Generate Blank Grid
+let nextPieceObj = null;                                               // Game piece that will be falling next
+let fallingPieceObj = null;                                            // Game piece that is currently falling
+let score = 0;                                                         // Current score
 let set_interval_id = null;                                            // Game interval ID - needs to be global - multiple functions need it
 
 gamestatus.set_playbutton_status();                                    // Set the play button status to enabled & pause button to disabled
@@ -80,12 +85,17 @@ function login_tetris() {
 
 function newGameState(){
     checkGrid();
-    if(!fallingPieceObj){
-        fallingPieceObj = randomPieceObject();
-        renderPiece();
+
+    if (!nextPieceObj) {nextPieceObj = randomPieceObject();}           // Cover Initial case of no next piece
+
+    if (!fallingPieceObj) {
+        fallingPieceObj = nextPieceObj;                                // Make next piece the current falling piece
+        nextPieceObj = randomPieceObject();                            // Make next piece the current
+        renderPiece();                                                 // Render falling piece
+        rendernextPiece();                                             // Render next    piece
     }
-   
-    moveDown();
+
+    moveDown();                                                        // Move falling piece down
 
    }
 
@@ -152,6 +162,21 @@ function renderPiece(){
     }
 }
 
+function rendernextPiece(){
+    gamectxnext.clearRect(0, 0, gamectxnext.canvas.width, gamectxnext.canvas.height); //Clear next piece grid
+    let piece = nextPieceObj.piece;
+    for(let i=0;i<piece.length;i++){
+        for(let j=0;j<piece[i].length;j++){
+            if(piece[i][j] == 1){
+            gamectxnext.fillStyle = COLORS[nextPieceObj.colorIndex];
+            //gamectxnext.fillRect(nextPieceObj.x+j,nextPieceObj.y+i,1,1);
+            gamectxnext.fillRect(j+1,nextPieceObj.y+i,1,1);
+        }
+        }
+    }
+}
+
+
 function moveDown(){
     if(!collision(fallingPieceObj.x,fallingPieceObj.y+1))
         fallingPieceObj.y+=1;
@@ -205,6 +230,7 @@ function renderGame(){
     }
     renderPiece();
 }
+
 function moveLeft(){
     if(!collision(fallingPieceObj.x-1,fallingPieceObj.y))
         fallingPieceObj.x-=1;

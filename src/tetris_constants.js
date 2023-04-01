@@ -4,6 +4,10 @@ const COLS = 10;
 const ROWS = 20;
 const BLOCK_SIZE = 30;
 const LINES_PER_LEVEL = 10;
+
+const NEXTCOLS = 05;                                                   // Next piece grid columns
+const NEXTROWS = 06;                                                   // Next piece grid rows
+
                                                                        // Colors for Tetris blocks
 const COLORS = [
   "#fff",
@@ -26,7 +30,7 @@ const COLORS = [
 Object.freeze(COLORS);
                                                                        // Tetris Block shapes
 const SHAPES = [
-  [
+[
     [0,1,0,0],
     [0,1,0,0],
     [0,1,0,0],
@@ -60,8 +64,7 @@ const SHAPES = [
 [
     [1,1],
     [1,1],
-]
-];
+]];
 Object.freeze(SHAPES);
                                                                        // Tetris game playing keys
 const KEY = {

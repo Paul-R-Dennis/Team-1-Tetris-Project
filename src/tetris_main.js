@@ -45,6 +45,11 @@ auth.onAuthStateChanged(user => {                                      // Check 
         }
   })
 
+db.collection('colors').get().then((snapshot) => {
+    snapshot.docs.forEach(doc => {
+        console.log(doc.data())
+    })
+})
 
 
 

@@ -40,7 +40,7 @@ document.addEventListener("keydown",function(e){                       // Add ke
 auth.onAuthStateChanged(user => {                                      // Check if USER is logged in
     if (user)
         {
-        console.log(auth.currentUser.email, "is logged in")
+        // console.log(auth.currentUser.email, "is logged in")
         Userid.innerText = auth.currentUser.email
         }
   })

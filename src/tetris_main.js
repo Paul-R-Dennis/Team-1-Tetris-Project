@@ -24,7 +24,7 @@ let set_interval_id = null;                                            // Game i
 gamestatus.set_playbutton_status();                                    // Set the play button status to enabled & pause button to disabled
 gamestatus.set_login_status();                                         // Set the login status to enabled
 
-document.addEventListener("keydown",function(e){                       // 
+document.addEventListener("keydown",function(e){                       // Add keyboard events for arrow keys
     let key = e.key;
     if(key == "ArrowDown" && gamestatus.get_is_game_in_play_mode()){
         moveDown();
@@ -37,7 +37,13 @@ document.addEventListener("keydown",function(e){                       //
     }
 })
 
-
+auth.onAuthStateChanged(user => {                                      // Check if USER is logged in
+    if (user)
+        {
+        console.log(auth.currentUser.email, "is logged in")
+        Userid.innerText = auth.currentUser.email
+        }
+  })
 
 
 

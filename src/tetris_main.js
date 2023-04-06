@@ -43,8 +43,7 @@ auth.onAuthStateChanged(user => {                                      // Check 
         console.log(auth.currentUser.email, "is logged in");
         console.log("User ID: ", auth.currentUser.uid);
         db.collection('users').doc(user.uid).get().then(doc => {
-            const name = ` ${doc.data().name}
-            `;
+            const name = ` ${doc.data().name}`;
             Userid.innerText = name;
         })
         Userid.innerText = auth.currentUser.email;
@@ -224,20 +223,33 @@ function moveDown(){
             alert("game over");
             var dbRef = db.collection('users').doc(auth.currentUser.uid);
             var tempHighScore = score;
+            dbRef.get().then((doc) => {
+                if (doc.exists) {
+                    var data = doc.data();
+                    var highScore = data.HighScore;
+                    if (highScore < tempHighScore) {
+                        return dbRef.update({
+                            HighScore: tempHighScore
+                        })
+                        .then(() => {
+                            console.log("High Score Updated!");
+                            level.innerText = tempHighScore;
+                        })
+                        .catch((error) => {
+                            console.error("Error updating document: ", error);
+                        });
+                    }
+                } else {
+                    console.log("No such document.");
+                }
+            }).catch((error) => {
+                console.log("Error getting document: ", error);
+            });
+
+            console.log(tempHighScore)
             grid = generateGrid();
             score = 0;
 
-            if (tempHighScore > dbRef.HighScore) {
-                return dbRef.update({
-                    HighScore: tempHighScore
-                })
-                .then(() => {
-                    console.log("High Score Updated!");
-                })
-                .catch((error) => {
-                    console.error("Error updating document: ", error);
-                });
-            }
         }
         
         fallingPieceObj = null;

@@ -3,7 +3,7 @@ auth.onAuthStateChanged(user => {
 })
 
 //logout
-const logout = document.querySelector('#logout');
+const logout = document.querySelector('#logout-button');
 logout.addEventListener('click', function(e) {
     e.preventDefault();
     auth.signOut().then(() => {

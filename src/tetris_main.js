@@ -92,8 +92,12 @@ function login_tetris() {                                              // Handle
 
 
   function logout_tetris() {                                           // Handle LOGOUT button
-    window.location.href = "../logout.html";
+    // window.location.href = "../logout.html";
     gamestatus.set_login_status();                                     // Set the login = enabled / logout = disabled
+    const logout = document.querySelector('#logout-button');
+    auth.signOut().then(() => {
+            console.log('user signed out');
+    });
   }
 
 

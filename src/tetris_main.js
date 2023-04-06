@@ -22,7 +22,7 @@ let score = 0;                                                         // Curren
 let set_interval_id = null;                                            // Game interval ID - needs to be global - multiple functions need it
 
 gamestatus.set_playbutton_status();                                    // Set the play button status to enabled & pause button to disabled
-gamestatus.set_login_status();                                         // Set the login status to enabled
+gamestatus.set_login_status();                                         // Set the login = enabled / logout = disabled
 
 document.addEventListener("keydown",function(e){                       // Add keyboard events for arrow keys
     let key = e.key;
@@ -42,6 +42,7 @@ auth.onAuthStateChanged(user => {                                      // Check 
         {
         // console.log(auth.currentUser.email, "is logged in")
         Userid.innerText = auth.currentUser.email
+        gamestatus.set_logout_status();                                // Set the login login = disabled / logout = enabled
         }
   })
 
@@ -85,13 +86,15 @@ function pause_tetris() {
 //   //console.log("Play Tetris --- End");
 // }
 
-function login_tetris() {
-  window.location.href = "../login.html";
-  
-
-}
+function login_tetris() {                                              // Handle LOGIN button
+    window.location.href = "../login.html";
+  }
 
 
+  function logout_tetris() {                                           // Handle LOGOUT button
+    window.location.href = "../logout.html";
+    gamestatus.set_login_status();                                     // Set the login = enabled / logout = disabled
+  }
 
 
 function newGameState(){

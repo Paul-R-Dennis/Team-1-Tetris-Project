@@ -98,6 +98,7 @@ function login_tetris() {                                              // Handle
     auth.signOut().then(() => {
             console.log('user signed out');
     });
+    Userid.innerText = "x"
   }
 
 

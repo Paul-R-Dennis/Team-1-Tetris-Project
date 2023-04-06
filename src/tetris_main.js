@@ -40,8 +40,19 @@ document.addEventListener("keydown",function(e){                       // Add ke
 auth.onAuthStateChanged(user => {                                      // Check if USER is logged in
     if (user)
         {
-        // console.log(auth.currentUser.email, "is logged in")
-        Userid.innerText = auth.currentUser.email
+        console.log(auth.currentUser.email, "is logged in");
+        console.log("User ID: ", auth.currentUser.uid);
+        db.collection('users').doc(user.uid).get().then(doc => {
+            const name = ` ${doc.data().name}
+            `;
+            Userid.innerText = name;
+        })
+        Userid.innerText = auth.currentUser.email;
+        db.collection('users').doc(user.uid).get().then(doc => {
+            const score = ` ${doc.data().HighScore}
+            `;
+            level.innerText = score
+        })
         gamestatus.set_logout_status();                                // Set the login login = disabled / logout = enabled
         }
   })
@@ -210,10 +221,25 @@ function moveDown(){
             }
         }
         if(fallingPieceObj.y == 0){
-            alert("gamer over");
+            alert("game over");
+            var dbRef = db.collection('users').doc(auth.currentUser.uid);
+            var tempHighScore = score;
             grid = generateGrid();
             score = 0;
+
+            if (tempHighScore > dbRef.HighScore) {
+                return dbRef.update({
+                    HighScore: tempHighScore
+                })
+                .then(() => {
+                    console.log("High Score Updated!");
+                })
+                .catch((error) => {
+                    console.error("Error updating document: ", error);
+                });
+            }
         }
+        
         fallingPieceObj = null;
     }
     renderGame();

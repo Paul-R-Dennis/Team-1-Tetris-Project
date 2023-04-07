@@ -1,4 +1,5 @@
 auth.onAuthStateChanged(user => {
+    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
     console.log(user)
 })
 

@@ -51,12 +51,9 @@ document.getElementById("signbtn").addEventListener('click', function(){
     //window.location.replace("../public/index.html");
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    document.getElementById("result-box").style.display="inline";
-     document.getElementById("logindiv").style.display="none";
-     document.getElementById("result").innerHTML="Sorry ! <br>"+errorMessage;
-
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage, " Code: ", errorCode);
   });
 });
 
@@ -78,6 +75,7 @@ document.getElementById("signbtn").addEventListener('click', function(){
       GamesPlayed: 0,
       AvgScore: 0
     }).then(() => {
+      // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
       console.log("Successfully Created!");
     })
     // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
@@ -86,8 +84,11 @@ document.getElementById("signbtn").addEventListener('click', function(){
     //  document.getElementById("signupdiv").style.display="none";
     //window.location.replace("../public/index.html");
   }).catch((error) => {
-     console.error("Error writing document: ", error);
-
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+    console.error("Error writing document: ", error);
+    alert(errorMessage, " Code: ", errorCode);
   });
 });
 

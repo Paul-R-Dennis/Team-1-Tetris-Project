@@ -128,7 +128,7 @@ function newGameState(){
     moveDown();                                                        // Move falling piece down
 
    }
-
+//score and remove shape if there is a connection
 function checkGrid(){
     let count = 0;
     for(let i=0;i<grid.length;i++){
@@ -206,7 +206,7 @@ function rendernextPiece(){                                            // Render
     }
 }
 
-
+//piece moving down when game starts
 function moveDown(){
     if(!collision(fallingPieceObj.x,fallingPieceObj.y+1))
         fallingPieceObj.y+=1;
@@ -246,7 +246,7 @@ function moveDown(){
     renderGame();
 }
 
-
+//check where the collision is and make sure the shapes don't pass the lines 
 function collision(x,y,rotatedPiece){
     let piece = rotatedPiece || fallingPieceObj.piece
     for(let i=0;i<piece.length;i++){
@@ -275,19 +275,19 @@ function renderGame(){
     }
     renderPiece();
 }
-
+//moves the shapes to the left
 function moveLeft(){
     if(!collision(fallingPieceObj.x-1,fallingPieceObj.y))
         fallingPieceObj.x-=1;
     renderGame();
 }
-
+//moves the shapes to the right
 function moveRight(){
     if(!collision(fallingPieceObj.x+1,fallingPieceObj.y))
         fallingPieceObj.x+=1;
     renderGame();
 }
-
+//this rotates the shapes
 function rotate(){
     let rotatedPiece = [];
     let piece = fallingPieceObj.piece;

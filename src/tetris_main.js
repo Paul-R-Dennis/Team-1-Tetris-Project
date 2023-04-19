@@ -110,6 +110,8 @@ function login_tetris() {                                              // Handle
     auth.signOut().then(() => {
             // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
             console.log('user signed out');
+            Userid.innerText = "";
+            alert("Logged out!");
     });
     Userid.innerText = "x"
   }
@@ -225,36 +227,7 @@ function moveDown(){
         }
         if(fallingPieceObj.y == 0){
             alert("game over");
-            var dbRef = db.collection('users').doc(auth.currentUser.uid);           // db initialization
-            var tempHighScore = score;                                              // saves current score
-            dbRef.get().then((doc) => {                                             // gets the High SCore
-                if (doc.exists) {
-                    var data = doc.data();
-                    var highScore = data.HighScore;
-                    if (highScore < tempHighScore) {                                // checks if current score is greater than high score
-                        return dbRef.update({
-                            HighScore: tempHighScore
-                        })
-                        .then(() => {
-                            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
-                            console.log("High Score Updated!");
-                            level.innerText = tempHighScore;                        // updates the displayed high score
-                        })
-                        .catch((error) => {
-                            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
-                            console.error("Error updating document: ", error);
-                        });
-                    }
-                } else {
-                    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
-                    console.log("No such document.");
-                }
-            }).catch((error) => {
-                // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
-                console.log("Error getting document: ", error);
-            });
-            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
-            console.log(tempHighScore)
+            gameOver();                                             // gameOver function to trigger Firebase updates
             grid = generateGrid();
             score = 0;
 
@@ -329,3 +302,52 @@ function rotate(){
         fallingPieceObj.piece = rotatedPiece
     renderGame()
 }
+
+
+function gameOver(){                                                        // checking fore FBDB updates.
+    var dbRef = db.collection('users').doc(auth.currentUser.uid);           // db initialization
+    var tempHighScore = score;                                              // saves current score
+
+    dbRef.get().then((doc) => {                                             // gets the High SCore
+        if (doc.exists) {
+            var data = doc.data();
+            var highScore = data.HighScore;
+
+            var gamesPlayed = data.GamesPlayed;                             // GamesPlayed Update
+            var tempGamesPlayed = gamesPlayed + 1;
+            
+
+            var totalScore = data.TotalScore;                                   // AvgScore Update
+            var tempTotalScore = totalScore + tempHighScore;
+            var newAvgScore = tempTotalScore / tempGamesPlayed;
+            
+            dbRef.update({                                                  // Updates the database
+                GamesPlayed: tempGamesPlayed,
+                TotalScore: tempTotalScore,
+                AvgScore: newAvgScore
+            })
+
+            if (highScore < tempHighScore) {                                // checks if current score is greater than high score
+                return dbRef.update({
+                    HighScore: tempHighScore
+                })
+                .then(() => {
+                    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+                    console.log("High Score Updated!");
+                    level.innerText = tempHighScore;                        // updates the displayed high score
+                })
+                .catch((error) => {
+                    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+                    console.error("Error updating document: ", error);
+                });
+            }
+        } else {
+            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+            console.log("No such document.");
+        }
+    }).catch((error) => {
+        // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+        console.log("Error getting document: ", error);
+    });
+}
+

@@ -106,4 +106,5 @@ document.getElementById("signbtn").addEventListener('click', function(){
 //return home
 document.getElementById("home").addEventListener('click', function(){
   window.location.replace("/index.html");
-})
+});
+

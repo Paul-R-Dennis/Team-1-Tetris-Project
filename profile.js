@@ -73,6 +73,65 @@ function changePassword() {                                                 // c
     }    
   }
 
+if (document.URL.includes("profile.html")) {
   document.getElementById("home").addEventListener('click', function(){
     window.location.replace("/index.html");
   });
+}
+
+
+function delete_user() {
+    window.location.href = "../deleteuser.html";
+}
+
+function deleteUser() {
+    const user = auth.currentUser;
+    const loginPassword = document.getElementById("loginPassword").value;
+    // !!!!!!!!! CONSOLE LOG !!!!!!!!!!
+    console.log(user, loginPassword);
+    
+    
+
+    if (user !== null) {
+        var dbRef = db.collection('users').doc(auth.currentUser.uid);                           // Retrieves firebase data
+
+        const cred = firebase.auth.EmailAuthProvider.credential(
+            user.email,
+            loginPassword
+        );
+
+        user.reauthenticateWithCredential(cred);
+
+        dbRef.get().then((doc) => {
+            if (doc.exists) {
+                var data = doc.data();
+                var oldPass = data.password;
+                // !!!!!!!!! CONSOLE LOG !!!!!!!!!!
+                console.log(oldPass, loginPassword, user);
+
+                if (oldPass == loginPassword) {
+                    user.delete().then(() => {
+                        if (confirm("Account Deleted!")) {
+                            window.location.replace("index.html");
+                        }
+                      }).catch((error) => {
+                        console.error("Error Deleting User: ", error);
+                      });
+
+                    db.collection('users').doc(user.uid).delete().then(() => {
+                        console.log("Dcocument successfully deleted!");
+                    }).catch((error) => {
+                        console.error("Error removing document: ", error);
+                    })
+                }
+                else {
+                    alert("Incorrect Password!");
+
+                }
+            }
+        })
+    }
+
+        
+    
+}

@@ -80,8 +80,8 @@ document.getElementById("signbtn").addEventListener('click', function(){
     })
     // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
     // const user = userCredential.user;
-    // document.getElementById("result-box").style.display="inline";
-    //  document.getElementById("signupdiv").style.display="none";
+     document.getElementById("result-box").style.display="inline";
+     document.getElementById("signupdiv").style.display="none";
     //window.location.replace("../public/index.html");
   }).catch((error) => {
     var errorCode = error.code;

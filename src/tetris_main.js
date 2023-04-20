@@ -40,15 +40,15 @@ document.addEventListener("keydown",function(e){                       // Add ke
 auth.onAuthStateChanged(user => {                                      // Check if USER is logged in
     if (user)
         {
-        console.log(auth.currentUser.email, "is logged in");
+            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+        console.log(auth.currentUser.email, "is logged in");        
         console.log("User ID: ", auth.currentUser.uid);
-        db.collection('users').doc(user.uid).get().then(doc => {
-            const name = ` ${doc.data().name}
-            `;
+        db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
+            const name = ` ${doc.data().name}`;
             Userid.innerText = name;
         })
         Userid.innerText = auth.currentUser.email;
-        db.collection('users').doc(user.uid).get().then(doc => {
+        db.collection('users').doc(user.uid).get().then(doc => {        // Sets High Score
             const score = ` ${doc.data().HighScore}
             `;
             level.innerText = score
@@ -59,6 +59,7 @@ auth.onAuthStateChanged(user => {                                      // Check 
 
 db.collection('colors').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
+        // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
         console.log(doc.data())
     })
 })
@@ -107,7 +108,10 @@ function login_tetris() {                                              // Handle
     gamestatus.set_login_status();                                     // Set the login = enabled / logout = disabled
     const logout = document.querySelector('#logout-button');
     auth.signOut().then(() => {
+            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
             console.log('user signed out');
+            Userid.innerText = "";
+            alert("Logged out!");
     });
     Userid.innerText = "x"
   }
@@ -223,22 +227,10 @@ function moveDown(){
         }
         if(fallingPieceObj.y == 0){
             alert("game over");
-            var dbRef = db.collection('users').doc(auth.currentUser.uid);
-            var tempHighScore = score;
+            gameOver();                                             // gameOver function to trigger Firebase updates
             grid = generateGrid();
             score = 0;
 
-            if (tempHighScore > dbRef.HighScore) {
-                return dbRef.update({
-                    HighScore: tempHighScore
-                })
-                .then(() => {
-                    console.log("High Score Updated!");
-                })
-                .catch((error) => {
-                    console.error("Error updating document: ", error);
-                });
-            }
         }
         
         fallingPieceObj = null;
@@ -310,3 +302,52 @@ function rotate(){
         fallingPieceObj.piece = rotatedPiece
     renderGame()
 }
+
+
+function gameOver(){                                                        // checking fore FBDB updates.
+    var dbRef = db.collection('users').doc(auth.currentUser.uid);           // db initialization
+    var tempHighScore = score;                                              // saves current score
+
+    dbRef.get().then((doc) => {                                             // gets the High SCore
+        if (doc.exists) {
+            var data = doc.data();
+            var highScore = data.HighScore;
+
+            var gamesPlayed = data.GamesPlayed;                             // GamesPlayed Update
+            var tempGamesPlayed = gamesPlayed + 1;
+            
+
+            var totalScore = data.TotalScore;                                   // AvgScore Update
+            var tempTotalScore = totalScore + tempHighScore;
+            var newAvgScore = tempTotalScore / tempGamesPlayed;
+            
+            dbRef.update({                                                  // Updates the database
+                GamesPlayed: tempGamesPlayed,
+                TotalScore: tempTotalScore,
+                AvgScore: newAvgScore
+            })
+
+            if (highScore < tempHighScore) {                                // checks if current score is greater than high score
+                return dbRef.update({
+                    HighScore: tempHighScore
+                })
+                .then(() => {
+                    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+                    console.log("High Score Updated!");
+                    level.innerText = tempHighScore;                        // updates the displayed high score
+                })
+                .catch((error) => {
+                    // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+                    console.error("Error updating document: ", error);
+                });
+            }
+        } else {
+            // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+            console.log("No such document.");
+        }
+    }).catch((error) => {
+        // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+        console.log("Error getting document: ", error);
+    });
+}
+

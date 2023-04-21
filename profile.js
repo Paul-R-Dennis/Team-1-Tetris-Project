@@ -13,7 +13,7 @@ if (document.URL.includes("profile.html")) {
                 const games = ` ${doc.data().GamesPlayed}`;                 // Displays Games Played
                 gamesplayed.innerText = games;
 
-                const avgScore = ` ${doc.data().HighScore}`;                // Displays Average Score
+                const avgScore = ` ${doc.data().AvgScore}`;                // Displays Average Score
                 averagescore.innerText = avgScore;
             })
         }

@@ -9,16 +9,16 @@ const NEXTCOLS = 05;                                                   // Next p
 const NEXTROWS = 06;                                                   // Next piece grid rows
 
                                                                        // Colors for Tetris blocks
-const COLORS = [
-  "#fff",
-  "#9b5fe0",
-  "#16a4d8",
-  "#60dbe8",
-  "#8bd346",
-  "#efdf48",
-  "#f9a52c",
-  "#d64e12"
-];
+// const COLORS = [
+//   "#fff",
+//   "#9b5fe0",
+//   "#16a4d8",
+//   "#60dbe8",
+//   "#8bd346",
+//   "#efdf48",
+//   "#f9a52c",
+//   "#d64e12"
+// ];
   // 'none',
   // 'cyan',
   // 'blue',
@@ -27,7 +27,7 @@ const COLORS = [
   // 'green',
   // 'purple',
   // 'red'
-Object.freeze(COLORS);
+//Object.freeze(COLORS);
                                                                        // Tetris Block shapes
 const SHAPES = [
 [

@@ -57,14 +57,17 @@ auth.onAuthStateChanged(user => {                                      // Check 
         }
   })
 
-db.collection('colors').get().then((snapshot) => {
+COLORS = []                                                            // List of colors for Tetris pieces - Order is IMPORTANT
+db.collection('colors').get().then((snapshot) => {                     // Read in COLORS from Firebase and populate COLORS list
     snapshot.docs.forEach(doc => {
-        // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
-        console.log(doc.data())
+        const uoallcolors = doc.data()                                 // Read in un-ordered colors data
+        skallcolors = Object.keys(uoallcolors).sort()                  // Make a list of Sorted keys
+
+        for (const [jk, sk] of Object.entries(skallcolors)) {          // Loop through all keys and 
+            COLORS[jk] = uoallcolors[sk]                               // populate the COLORS list
+        }
     })
 })
-
-
 
 
 function play_tetris() {
@@ -184,7 +187,8 @@ function randomPieceObject(){
     return {piece,colorIndex,x,y}
 }
 
-function renderPiece(){
+function renderPiece(){                                                // Render falling piece
+    if (fallingPieceObj == null) {return}                              // If there is no falling piece, return. This is a safety check.
     let piece = fallingPieceObj.piece;
     for(let i=0;i<piece.length;i++){
         for(let j=0;j<piece[i].length;j++){

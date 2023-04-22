@@ -288,6 +288,7 @@ function moveRight(){
 }
 
 function rotate(){
+    if (fallingPieceObj == null) {return}                              // If there is no falling piece, return. This is a safety check.
     let rotatedPiece = [];
     let piece = fallingPieceObj.piece;
     for(let i=0;i<piece.length;i++){

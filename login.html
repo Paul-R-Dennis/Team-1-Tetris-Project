@@ -15,6 +15,7 @@
       <input type="password" id="loginPassword" class="textBox" name="loginPassword" placeholder="Password" required/><br>
       <button id="loginButton" class="button">Login</button><br>
       <button id="regButton" class="btn">Don't have an account Sign up</button>
+      <br><br><button id="home" class="button">Home</button>
    </div>
 
    <div class="centerBox" id="signupdiv">
@@ -28,7 +29,13 @@
 
 <div id="result-box">
   <h3>Success!</h3><br>
-     <button id="home" class="button"><a href="/Team-2-Tetris-Project/index.html"></a>HOME</button>
+     <button id="home" class="button">HOME</button>
 </div>
+
+  <script type="text/javascript">
+    document.getElementById("home").onclick = function () {
+    location.href = "index.html";
+  };
+  </script>
   </body>
   </html>

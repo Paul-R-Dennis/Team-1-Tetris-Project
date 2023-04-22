@@ -216,6 +216,7 @@ function rendernextPiece(){                                            // Render
 
 
 function moveDown(){
+    if (fallingPieceObj == null) {return}                              // If there is no falling piece, return. This is a safety check.
     if(!collision(fallingPieceObj.x,fallingPieceObj.y+1))
         fallingPieceObj.y+=1;
     else{
@@ -273,12 +274,14 @@ function renderGame(){
 }
 
 function moveLeft(){
+    if (fallingPieceObj == null) {return}                              // If there is no falling piece, return. This is a safety check.
     if(!collision(fallingPieceObj.x-1,fallingPieceObj.y))
         fallingPieceObj.x-=1;
     renderGame();
 }
 
 function moveRight(){
+    if (fallingPieceObj == null) {return}                              // If there is no falling piece, return. This is a safety check.
     if(!collision(fallingPieceObj.x+1,fallingPieceObj.y))
         fallingPieceObj.x+=1;
     renderGame();

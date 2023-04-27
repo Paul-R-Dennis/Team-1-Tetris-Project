@@ -73,7 +73,9 @@ document.getElementById("signbtn").addEventListener('click', function(){
       password: signupPassword,
       HighScore: 0,
       GamesPlayed: 0,
-      AvgScore: 0
+      AvgScore: 0,
+      Created: new Date,
+      SignedIn: new Date
     }).then(() => {
       // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
       console.log("Successfully Created!");

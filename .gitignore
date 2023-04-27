@@ -1,3 +1,4 @@
 .vscode
 src/secret_data.js
 tetrisGame.js
+node_modules

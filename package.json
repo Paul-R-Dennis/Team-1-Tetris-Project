@@ -1,0 +1,26 @@
+{
+  "name": "team-2-tetris-project",
+  "version": "1.0.0",
+  "description": "Group Project for Web Programming III at DCTC for Spring 2023",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-R-Dennis/Team-2-Tetris-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paul-R-Dennis/Team-2-Tetris-Project/issues"
+  },
+  "homepage": "https://github.com/Paul-R-Dennis/Team-2-Tetris-Project#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "firebase": "^9.21.0"
+  }
+}

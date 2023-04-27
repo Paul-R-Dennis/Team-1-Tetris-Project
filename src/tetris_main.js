@@ -68,6 +68,7 @@ db.collection('colors').get().then((snapshot) => {                     // Read i
         }
     })
 })
+module.exports = COLORS;
 
 SHAPES = []                                                           // List of shapes - Order is IMPORTANT
 db.collection('shapes').get().then((snapshot) => {                     // Read in SHAPES from Firebase and populate SHAPES list

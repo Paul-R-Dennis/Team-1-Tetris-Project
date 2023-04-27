@@ -69,6 +69,32 @@ db.collection('colors').get().then((snapshot) => {                     // Read i
     })
 })
 
+SHAPES = []                                                           // List of shapes - Order is IMPORTANT
+db.collection('shapes').get().then((snapshot) => {                     // Read in SHAPES from Firebase and populate SHAPES list
+    snapshot.docs.forEach(doc => {
+        const allshapes = doc.data()                                   // Read in shapes data
+        //console.log("Current Shapes: ", SHAPES)
+        //console.log("DB Shapes: ", allshapes)
+        skshapes = Object.keys(allshapes).sort()                       // Make a list of Sorted keys
+
+        for (let [jk, sk] of Object.entries(skshapes)) {               // Loop through all keys and populate the TSHAPES list
+            tshapelist = allshapes[sk]                                 // tshapelist = List of array values
+            //console.log("Temp Shape var1: ", tshapelist)
+            SHAPES[jk] = []                                           // Add empty list at 1st level
+
+            for (let [i, tshape] of Object.entries(tshapelist)) {      // i=0 & tshape=0100
+                SHAPES[jk][i] = []                                    // Add empty list at 2nd level
+
+                for (let [j, tpoint] of Object.entries(tshape)) {     // Loop on last level - tpoint = last value
+
+                    //console.log("last Inner values: ", j, tpoint)
+                    SHAPES[jk][i][j] = parseInt(tpoint)
+                }
+            }
+        }
+    })
+    //console.log("Temp Shapes: ", TSHAPES)
+})
 
 function play_tetris() {
 

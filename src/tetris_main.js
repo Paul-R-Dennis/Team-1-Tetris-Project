@@ -41,6 +41,7 @@ auth.onAuthStateChanged(user => {                                      // Check 
     if (user)
         {
             // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
+        console.log(user);
         console.log(auth.currentUser.email, "is logged in");        
         console.log("User ID: ", auth.currentUser.uid);
         db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
@@ -68,7 +69,6 @@ db.collection('colors').get().then((snapshot) => {                     // Read i
         }
     })
 })
-module.exports = COLORS;
 
 SHAPES = []                                                           // List of shapes - Order is IMPORTANT
 db.collection('shapes').get().then((snapshot) => {                     // Read in SHAPES from Firebase and populate SHAPES list
@@ -258,8 +258,8 @@ function moveDown(){
             }
         }
         if(fallingPieceObj.y == 0){
-            alert("game over");
-            gameOver();                                             // gameOver function to trigger Firebase updates
+            gameOver();
+            alert("game over");                                             // gameOver function to trigger Firebase updates
             grid = generateGrid();
             score = 0;
 
@@ -340,9 +340,10 @@ function rotate(){
 
 
 function gameOver(){
+    const user = auth.currentUser;
     if (user !== null) {                                                       // checking fore FBDB updates.
         var dbRef = db.collection('users').doc(auth.currentUser.uid);           // db initialization
-        var tempHighScore = score;                                              // saves current score
+        var tempHighScore = score;                                             // saves current score
 
         dbRef.get().then((doc) => {                                             // gets the High SCore
             if (doc.exists) {

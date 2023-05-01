@@ -52,4 +52,6 @@
   .links{
     text-align: center;
   }
-  
+  #forgotpassdiv{
+    display:none;
+  }

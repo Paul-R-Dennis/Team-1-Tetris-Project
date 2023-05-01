@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="login.css"/>
+</head>
+<body>
+    <div class="centerBox" id="logindiv">
+        <h2 >Change your Email</h2>
+        <input type="password" id="loginPassword" class="textBox" name="loginPassword" placeholder="Password" required/><br>
+        <input type="email" id="newEmail" class="textBox" name="newEmail" placeholder="New Email" required/><br>
+        
+        
+        <br><button id="changeEmailButton" class="button" onclick="changeEmail()">Change Email</button><br>
+        <br><button id="profile" class="button">Return to Profile</button>
+     </div>
+
+     <div id="result-box">
+        <h3>Success!</h3><br>
+           <button id="home" class="button"></a>HOME</button>
+      </div>
+
+    <script type="application/javascript" src="profile.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script>
+  
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyDvPpc-1bT0OqmfkRH4nowl-7ffP140yww",
+          authDomain: "finaltetrisgamelogin.firebaseapp.com",
+          databaseURL: "https://finaltetrisgamelogin-default-rtdb.firebaseio.com",
+          projectId: "finaltetrisgamelogin",
+          storageBucket: "finaltetrisgamelogin.appspot.com",
+          messagingSenderId: "323557137776",
+          appId: "1:323557137776:web:0a896cdea2d42c0e5083b5",
+          measurementId: "G-EGB8S4KWPR"
+          };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      
+        //auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const user = auth.currentUser;
+        db.settings({timestampsInSnapshots: true});
+      </script>
+
+      <script type="text/javascript">
+        document.getElementById("profile").onclick = function () {
+          location.href = "profile.html";
+        };
+      </script>
+      <script type="text/javascript">
+        document.getElementById("home").onclick = function () {
+        location.href = "index.html";
+      };
+      </script>
+</body>
+
+</html>

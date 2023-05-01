@@ -26,7 +26,7 @@ gamestatus.set_login_status();                                         // Set th
 
 document.addEventListener("keydown",function(e){                       // Add keyboard events for arrow keys
     let key = e.key;
-    if(key == "ArrowDown" && gamestatus.get_is_game_in_play_mode()){
+    if(key == "ArrowDown"  && gamestatus.get_is_game_in_play_mode()){
         moveDown();
     }else if(key == "ArrowLeft" && gamestatus.get_is_game_in_play_mode()){
         moveLeft();
@@ -34,6 +34,14 @@ document.addEventListener("keydown",function(e){                       // Add ke
         moveRight();
     }else if(key == "ArrowUp" && gamestatus.get_is_game_in_play_mode()){
         rotate();
+    }else if(key == "a" && gamestatus.get_is_game_in_play_mode()){
+        moveLeft();
+    }else if(key == "d" && gamestatus.get_is_game_in_play_mode()){
+        moveRight();
+    }else if(key == "w" && gamestatus.get_is_game_in_play_mode()){
+        rotate();
+    }else if(key == "s"  && gamestatus.get_is_game_in_play_mode()){
+        moveDown();
     }
 })
 

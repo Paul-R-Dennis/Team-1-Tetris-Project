@@ -23,17 +23,29 @@ const firebaseConfig = {
   db.settings({timestampsInSnapshots: true});
 
 
-
+  // replaces login div with signup div
   document.getElementById("regButton").addEventListener('click', function(){
    document.getElementById("signupdiv").style.display="inline";
    document.getElementById("logindiv").style.display="none";
 });
 
+// replaces signup div with login div
 document.getElementById("signbtn").addEventListener('click', function(){
  document.getElementById("signupdiv").style.display="none";
  document.getElementById("logindiv").style.display="inline";
-
 });
+
+// replaces login div with forgot password div
+document.getElementById("forgotPassButton").addEventListener('click', function(){
+  document.getElementById("forgotpassdiv").style.display="inline";
+  document.getElementById("logindiv").style.display="none";
+});
+
+// replaces signup div with login div
+document.getElementById("loginbtn").addEventListener('click', function(){
+  document.getElementById("forgotpassdiv").style.display="none";
+  document.getElementById("logindiv").style.display="inline";
+ });
 
 // login
   document.getElementById("loginButton").addEventListener('click', function(){
@@ -46,8 +58,9 @@ document.getElementById("signbtn").addEventListener('click', function(){
     // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
     console.log(userCredential.user);
     const user = userCredential.user;
-    document.getElementById("result-box").style.display="inline";
-    document.getElementById("logindiv").style.display="none";
+    if (confirm("Login Successful!")) {
+      window.location.replace("index.html");
+    }
     //window.location.replace("../public/index.html");
   })
   .catch((error) => {
@@ -79,11 +92,12 @@ document.getElementById("signbtn").addEventListener('click', function(){
     }).then(() => {
       // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
       console.log("Successfully Created!");
+      if (confirm("Account Created!")) {
+        window.location.replace("index.html");
+      }
     })
     // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
     // const user = userCredential.user;
-     document.getElementById("result-box").style.display="inline";
-     document.getElementById("signupdiv").style.display="none";
     //window.location.replace("../public/index.html");
   }).catch((error) => {
     var errorCode = error.code;
@@ -105,8 +119,11 @@ document.getElementById("signbtn").addEventListener('click', function(){
 
 //  });
 
-//return home
-document.getElementById("home").addEventListener('click', function(){
-  window.location.replace("/index.html");
-});
 
+document.getElementById("sendEmailButton").addEventListener('click', function(){
+  const userEmail= document.getElementById("Email").value;
+  
+  if (confirm("Incomplete Feature: \nRequired custom template which was not completed.")) {
+    window.location.replace("index.html");
+  }
+});

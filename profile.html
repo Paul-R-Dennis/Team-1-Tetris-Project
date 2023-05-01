@@ -12,15 +12,24 @@
 <body>
     <h2>Profile</h2>
     <h1>Name:<span id="Profileid"></span></h1>
+    <h1>Email:<span id="Emailid"></span></h1>
     <h1>Highest Score:<span id="highscore"></span></h1>
     <h1>Games Played:<span id="gamesplayed">0</span></h1>
     <h1>Average Score:<span id="averagescore">0</span></h1>
     <br>
-    <button onclick="change_password()" class="change-password-button">Change Password</button>
-    <button onclick="delete_user()" class="delete-button">Delete Account</button>
+    <div class="links">
+    <button onclick="change_password()" class="button">Change Password</button>
+    <button onclick="edit_name()" class="button">Edit Display name</button>
+    <button onclick="edit_email()" class="button">Edit Email</button>
+    <button onclick="delete_user()" class="button">Delete Account</button>
+    <br>
+    <button onclick="admin()" id="adminbutton" class="adminbutton">Admin Page</button>
+    <br>
+    </div>
+
 
     <div class="links">
-        <a href="index.html">Home </a>
+      <button id="home" class="button"></a>HOME</button>
     </div>
 
     
@@ -28,7 +37,7 @@
     <script type="application/javascript" src="src/tetris_board.js"     defer></script>
     <script type="application/javascript" src="src/tetris_piece.js"     defer></script>
     <script type="application/javascript" src="src/tetris_status.js"    defer></script>
-    <script type="application/javascript" src="src/tetris_main.js"      defer></script>
+    
     <script type="application/javascript" src="profile.js"              defer></script> 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>

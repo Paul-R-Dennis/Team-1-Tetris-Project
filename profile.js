@@ -7,13 +7,16 @@ if (document.URL.includes("profile.html")) {
                 const name = ` ${doc.data().name}`;                         // Sets  name
                 Profileid.innerText = name;
 
+                const email = ` ${doc.data().email}`;                         // Sets  name
+                Emailid.innerText = email;
+
                 const score = ` ${doc.data().HighScore}`;                   // Displays High Score
                 highscore.innerText = score;
 
                 const games = ` ${doc.data().GamesPlayed}`;                 // Displays Games Played
                 gamesplayed.innerText = games;
 
-                const avgScore = ` ${doc.data().AvgScore}`;                // Displays Average Score
+                const avgScore = ` ${doc.data().AvgScore.toFixed(1)}`;                // Displays Average Score
                 averagescore.innerText = avgScore;
             })
         }
@@ -55,8 +58,9 @@ function changePassword() {                                                 // c
                         dbRef.update({
                             password: newPassword
                         })
-                        document.getElementById("result-box").style.display="inline";
-                        document.getElementById("logindiv").style.display="none";
+                        if (confirm("Password Changed!")) {
+                            window.location.replace("profile.html");
+                        }
                       }).catch((error) => {
                         // An error ocurred
                         console.log("Error Updating Password: ", error);
@@ -80,10 +84,12 @@ if (document.URL.includes("profile.html")) {
 }
 
 
+//navigates to the delete user page
 function delete_user() {
     window.location.href = "../deleteuser.html";
 }
 
+// deletes a user
 function deleteUser() {
     const user = auth.currentUser;
     const loginPassword = document.getElementById("loginPassword").value;
@@ -95,7 +101,7 @@ function deleteUser() {
     if (user !== null) {
         var dbRef = db.collection('users').doc(auth.currentUser.uid);                           // Retrieves firebase data
 
-        const cred = firebase.auth.EmailAuthProvider.credential(
+        const cred = firebase.auth.EmailAuthProvider.credential(                                // creates a user credential
             user.email,
             loginPassword
         );
@@ -134,4 +140,112 @@ function deleteUser() {
 
         
     
+}
+
+//edit name navigation
+function edit_name() {
+    window.location.href = "../editname.html";
+}
+
+//change name function
+function changeName() {
+    const user = auth.currentUser;
+    let newName = document.getElementById("newName").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+    console.log(user, newName);
+
+    if (user !== null) {
+        var dbRef = db.collection('users').doc(auth.currentUser.uid);                           // Retrieves firebase data
+
+        const cred = firebase.auth.EmailAuthProvider.credential(                                // creates a user credential
+            user.email,
+            loginPassword
+        );
+
+        user.reauthenticateWithCredential(cred);
+
+        dbRef.get().then((doc) => {
+            if (doc.exists) {
+                dbRef.update({
+                    name: newName
+                }).then(() => {
+                    if (confirm("Name Updated!")) {
+                        window.location.replace("profile.html");
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error updating document: ", error);
+                })
+            }
+        })
+    }
+}
+
+//edit email navigation
+function edit_email() {
+    window.location.href = "../editemail.html";
+}
+
+//change name function
+function changeEmail() {
+    const user = auth.currentUser;
+    let newEmail = document.getElementById("newEmail").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+    console.log(user, newEmail);
+
+    if (user !== null) {
+        var dbRef = db.collection('users').doc(auth.currentUser.uid);                           // Retrieves firebase data
+
+        const cred = firebase.auth.EmailAuthProvider.credential(                                // creates a user credential
+            user.email,
+            loginPassword
+        );
+
+        user.reauthenticateWithCredential(cred);
+
+        dbRef.get().then((doc) => {
+            if (doc.exists) {
+                user.updateEmail(newEmail);
+
+                dbRef.update({
+                    email: newEmail
+                }).then(() => {
+                    if (confirm("Email Updated!")) {
+                        window.location.replace("profile.html");
+                    }
+                })
+                .catch((error) => {
+                    alert("Error updating document: ", error);
+                })
+            }
+        })
+    }
+}
+
+//admin page navigation
+function admin() {
+    window.location.href = "../admin.html";
+}
+
+function profile() {
+    window.location.href = "../profile.html";
+}
+
+
+
+if (document.URL.includes("profile.html")) {
+    const dbRef = db.collection('roles').doc('admins');
+    dbRef.get().then((doc) => {
+    const data = doc.data();
+    console.log(data);
+
+    if(auth.currentUser.uid == data.Paul)
+    {
+        console.log("Youre an admin!");
+        document.getElementById("adminbutton").style.visibility="visible";
+    }
+    else {
+        console.log("You are not an admin");
+    }
+})
 }

@@ -149,6 +149,7 @@ function login_tetris() {                                              // Handle
             // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
             console.log('user signed out');
             Userid.innerText = "";
+            level.innerText = "";
             alert("Logged out!");
     });
     Userid.innerText = "x"
@@ -364,6 +365,7 @@ function gameOver(){
 
                 var totalScore = data.TotalScore;                                   // AvgScore Update
                 var tempTotalScore = totalScore + tempHighScore;
+
                 var newAvgScore = tempTotalScore / tempGamesPlayed;
                 
                 dbRef.update({                                                  // Updates the database

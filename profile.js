@@ -234,18 +234,40 @@ function profile() {
 
 
 if (document.URL.includes("profile.html")) {
-    const dbRef = db.collection('roles').doc('admins');
-    dbRef.get().then((doc) => {
-    const data = doc.data();
-    console.log(data);
+    const user = auth.currentUser;
+    console.log(user);
 
-    if(auth.currentUser.uid == data.Paul || data.Hasib || data.Mersed || data.Pardeep)
-    {
-        console.log("Youre an admin!");
-        document.getElementById("adminbutton").style.visibility="visible";
-    }
-    else {
-        console.log("You are not an admin");
-    }
+    const dbRef = db.collection('roles').doc('admins');
+
+    dbRef.get().then((doc) => {
+        const data = doc.data();
+        const user = auth.currentUser;
+        console.log(user);
+        console.log(data, data.Paul, data.Pardeep, data.Mersed, data.Hasib);
+        console.log(auth.currentUser.uid);
+
+        if(auth.currentUser.uid == data.Paul)
+        {
+            console.log("Youre an admin!", auth.currentUser.uid);
+            document.getElementById("adminbutton").style.visibility="visible";
+        }
+        else if(auth.currentUser.uid == data.Mersed)
+        {
+            console.log("Youre an admin!", auth.currentUser.uid);
+            document.getElementById("adminbutton").style.visibility="visible";
+        }
+        else if(auth.currentUser.uid == data.Hasib)
+        {
+            console.log("Youre an admin!", auth.currentUser.uid);
+            document.getElementById("adminbutton").style.visibility="visible";
+        }
+        else if(auth.currentUser.uid == data.Pardeep)
+        {
+            console.log("Youre an admin!", auth.currentUser.uid);
+            document.getElementById("adminbutton").style.visibility="visible";
+        }
+        else {
+            console.log("You are not an admin");
+        }
 })
 }

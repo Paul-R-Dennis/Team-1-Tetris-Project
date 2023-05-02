@@ -239,7 +239,7 @@ if (document.URL.includes("profile.html")) {
     const data = doc.data();
     console.log(data);
 
-    if(auth.currentUser.uid == data.Paul)
+    if(auth.currentUser.uid == data.Paul || data.Hasib || data.Mersed || data.Pardeep)
     {
         console.log("Youre an admin!");
         document.getElementById("adminbutton").style.visibility="visible";

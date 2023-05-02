@@ -1,0 +1,46 @@
+h1 {
+    background-color: gray;
+    margin-left: 300px;
+    border: solid 3px;
+    width: 95px;
+}
+
+.user {
+    margin-left: 900px;
+    background-color: gray;
+    border: solid 3px;
+    width: 70px;
+}
+
+.username {
+    height: 695px;
+    width: 1700px;
+    border: solid 3px black;
+    margin-left: 70px;
+}
+
+.username p {
+    margin-left: 20px;
+}
+
+
+.created {
+    margin-left: 300px;
+    margin-top: -30px;
+
+}
+
+.signed-in {
+    margin-left: 650px;
+    margin-top: -30px;
+}
+
+.user-uid {
+    margin-left: 950px;
+    margin-top: -30px;
+}
+
+button {
+    margin-left: 1620px;
+
+}

@@ -1,14 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="admin.css">
 </head>
+
 <body>
-    <p>Admin placeholder page</p>
     <button onclick="profile()" class="adminbutton">Profile Page</button>
-    <script type="application/javascript" src="profile.js"              defer></script> 
+    <script type="application/javascript" src="profile.js" defer></script>
+    <script type="application/javascript" src="admin.js" defer></script>
+
+    <h1>Admin</h1>
+
+
+    <div class="user">
+        <h2>Users</h2>
+    </div>
+    <div class="username">
+        <p>UserName: <span id="identifer">x</span></p>
+
+        <div class="created">
+            <p>Date Created: <span id="created">x</span></p>
+        </div>
+
+
+        <div class="signed-in">
+            <p>Signed in: <span id="signin">x</span></p>
+        </div>
+
+
+        <div class="user-uid">
+            <p>User-UID: <span id="UserUID">x</span></p>
+        </div>
+
+
+        <hr>
+
+        <p>UserName: <span id="identifer1">x</span></p>
+        <div class="created">
+            <p>Date Created: <span id="created1">x</span></p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in: <span id="signin1">x</span></p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID: <span id="UserUID1">x</span> </p>
+        </div>
+
+
+
+
+
+        <hr>
+        <p>UserName: <span id="identifer2">x</span></p>
+        <div class="created">
+            <p>Date Created: <span id="created2">x</span></p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in: <span id="signin2">x</span></p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID: <span id="UserUID2">x</span> </p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+        <p>UserName:</p>
+        <div class="created">
+            <p>Date Created:</p>
+        </div>
+        <div class="signed-in">
+            <p>Signed in:</p>
+        </div>
+        <div class="user-uid">
+            <p>User-UID:</p>
+        </div>
+        <hr>
+
+
+
+
+    </div>
+
+
+
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script>
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDvPpc-1bT0OqmfkRH4nowl-7ffP140yww",
+        authDomain: "finaltetrisgamelogin.firebaseapp.com",
+        databaseURL: "https://finaltetrisgamelogin-default-rtdb.firebaseio.com",
+        projectId: "finaltetrisgamelogin",
+        storageBucket: "finaltetrisgamelogin.appspot.com",
+        messagingSenderId: "323557137776",
+        appId: "1:323557137776:web:0a896cdea2d42c0e5083b5",
+        measurementId: "G-EGB8S4KWPR"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    //auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const user = auth.currentUser;
+    db.settings({ timestampsInSnapshots: true });
+</script>
+<script src="admin.js" type="module"></script>
+<script src="app.js" type="module"></script>
+<script src="profile.js" type="module"></script>
+
+
+</body>
+
 </html>

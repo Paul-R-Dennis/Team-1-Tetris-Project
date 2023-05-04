@@ -87,6 +87,7 @@ document.getElementById("loginbtn").addEventListener('click', function(){
       HighScore: 0,
       GamesPlayed: 0,
       AvgScore: 0,
+      TotalScore: 0,
       Created: new Date,
       SignedIn: new Date
     }).then(() => {

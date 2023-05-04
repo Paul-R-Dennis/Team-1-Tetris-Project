@@ -82,96 +82,143 @@ db.collection('users').doc('9meWLGGXT3NrfUB8z4A4Ypu0Hs52').get().then(doc => {  
     UserUID2.innerText = useruid;
 
 })
-db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
-    const created3 = ` ${doc.data().created}`;
-    created3.innerText = created3;
+db.collection('users').doc('k92Hj3EcIEfZ9ZZTfe2r5k7Sc0x1').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created3.innerText = dateformat;
+
+    const name = `${doc.data().name}`;
+    identifer3.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin3.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID3.innerText = useruid;
 })
-db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
-    const created4 = ` ${doc.data().created}`;
-    created4.innerText = created4;
+
+
+db.collection('users').doc('2zOiJrk8ruQnxBmAD4dkYmTe2oN2').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created4.innerText = dateformat;
+
+    const name = `${doc.data().name}`;
+    identifer4.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin4.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID4.innerText = useruid;
+
 })
-db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
-    const created5 = ` ${doc.data().created}`;
-    created5.innerText = created5;
+
+db.collection('users').doc('VgyPEmHJFaarEyoB51wDKTtdLR63').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created5.innerText = dateformat;
+
+    const name = `${doc.data().name}`;
+    identifer5.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin5.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID5.innerText = useruid;
 })
-db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
-    const created6 = ` ${doc.data().created}`;
-    created6.innerText = created6;
+
+db.collection('users').doc('HD9lnhVaOHflUjpWVjYS2E1vGhS2').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created6.innerText = dateformat;
+
+    const name = `${doc.data().name}`;
+    identifer6.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin6.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID6.innerText = useruid;
 })
-db.collection('users').doc(user.uid).get().then(doc => {        // Sets User name
-    const created7 = ` ${doc.data().created}`;
-    created7.innerText = created7;
+
+db.collection('users').doc('sD7w52fO8AMyeRDpHHC8hqiyJbe2').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created7.innerText = dateformat;
+
+    const name = `${doc.data().name}`;
+    identifer7.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin7.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID7.innerText = useruid;
+})
+
+db.collection('users').doc('Dvm7c281TadutC8hl8s1HYndJw63').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created8.innerText = dateformat;
+
+    const name = `${doc.data().name}`;
+    identifer8.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin8.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID8.innerText = useruid;
 })
 
 
 
+db.collection('users').doc('3xgAJZcUlOX4NyjnZmyKeUf2zZD3').get().then(doc => {  // Sets User name
+    const create = doc.data().Created;
+    const dateformat = create.toDate().toDateString();
+    console.log(created);
+    console.log(dateformat);
+    created9.innerText = dateformat;
 
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin = ` ${doc.data().signin}`;
-    signin.innerText = signin;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin1 = ` ${doc.data().signin}`;
-    signin1.innerText = signin1;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin2 = ` ${doc.data().signin}`;
-    signin2.innerText = signin2;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin3 = ` ${doc.data().signin}`;
-    signin3.innerText = signin3;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin4 = ` ${doc.data().signin}`;
-    signin4.innerText = signin4;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin5 = ` ${doc.data().signin}`;
-    signin5.innerText = signin5;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin6 = ` ${doc.data().signin}`;
-    signin6.innerText = signin6;
-})
-db.collection('signin').doc(user.uid).get().then(doc => {        // Sets User name
-    const signin7 = ` ${doc.data().signin}`;
-    signin7.innerText = signin7;
+    const name = `${doc.data().name}`;
+    identifer9.innerText = name;
+
+    const signedin = doc.data().SignedIn;
+    const signinformat = signedin.toDate().toDateString();
+    signin9.innerText = signinformat + " @ " + signedin.toDate().toLocaleTimeString();
+
+    const useruid = `${doc.id}`;
+    console.log(useruid);
+    UserUID9.innerText = useruid;
 })
 
-
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID = ` ${doc.data().UserUID}`;
-    UserUID.innerText = UserUID;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID1 = ` ${doc.data().UserUID}`;
-    UserUID1.innerText = UserUID1;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID2 = ` ${doc.data().UserUID}`;
-    UserUID2.innerText = UserUID2;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID3 = ` ${doc.data().UserUID}`;
-    UserUID3.innerText = UserUID3;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID4 = ` ${doc.data().UserUID}`;
-    UserUID4.innerText = UserUID4;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID5 = ` ${doc.data().UserUID}`;
-    UserUID5.innerText = UserUID5;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID6 = ` ${doc.data().UserUID}`;
-    UserUID6.innerText = UserUID6;
-})
-db.collection('UserUID ').doc(user.uid).get().then(doc => {        // Sets User name
-    const UserUID7 = ` ${doc.data().UserUID}`;
-    UserUID7.innerText = UserUID7;
-})
 
 
 // auth

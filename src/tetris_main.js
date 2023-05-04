@@ -137,7 +137,7 @@ function pause_tetris() {
 // }
 
 function login_tetris() {                                              // Handle LOGIN button
-    window.location.href = "/login.html";
+    window.location.href = "Team-2-Tetris-Project/login.html";
   }
 
 

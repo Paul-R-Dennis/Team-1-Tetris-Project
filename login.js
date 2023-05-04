@@ -59,7 +59,7 @@ document.getElementById("loginbtn").addEventListener('click', function(){
     console.log(userCredential.user);
     const user = userCredential.user;
     if (confirm("Login Successful!")) {
-      window.location.replace("index.html");
+      window.location.replace("/index.html");
     }
     //window.location.replace("../public/index.html");
   })
@@ -94,7 +94,7 @@ document.getElementById("loginbtn").addEventListener('click', function(){
       // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
       console.log("Successfully Created!");
       if (confirm("Account Created!")) {
-        window.location.replace("index.html");
+        window.location.replace("/index.html");
       }
     })
     // !!!!!!!! CONSOLE.LOG !!!!!!!!!!!
@@ -125,6 +125,6 @@ document.getElementById("sendEmailButton").addEventListener('click', function(){
   const userEmail= document.getElementById("Email").value;
   
   if (confirm("Incomplete Feature: \nRequired custom template which was not completed.")) {
-    window.location.replace("index.html");
+    window.location.replace("/index.html");
   }
 });

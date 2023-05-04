@@ -137,12 +137,12 @@ function pause_tetris() {
 // }
 
 function login_tetris() {                                              // Handle LOGIN button
-    window.location.href = "../login.html";
+    window.location.href = "/login.html";
   }
 
 
   function logout_tetris() {                                           // Handle LOGOUT button
-    // window.location.href = "../logout.html";
+    // window.location.href = "/logout.html";
     gamestatus.set_login_status();                                     // Set the login = enabled / logout = disabled
     const logout = document.querySelector('#logout-button');
     auth.signOut().then(() => {

@@ -23,7 +23,7 @@ if (document.URL.includes("profile.html")) {
     }) 
 
 function change_password() {                                                // Navigates to change password page
-        window.location.href = "changepassword.html";
+        window.location.href = "../Team-2-Tetris-Project/changepassword.html";
     }
 }
 
@@ -59,7 +59,7 @@ function changePassword() {                                                 // c
                             password: newPassword
                         })
                         if (confirm("Password Changed!")) {
-                            window.location.replace("profile.html");
+                            window.location.replace("../Team-2-Tetris-Project/profile.html");
                         }
                       }).catch((error) => {
                         // An error ocurred
@@ -79,14 +79,14 @@ function changePassword() {                                                 // c
 
 if (document.URL.includes("profile.html")) {
   document.getElementById("home").addEventListener('click', function(){
-    window.location.replace("index.html");
+    window.location.replace("../Team-2-Tetris-Project/index.html");
   });
 }
 
 
 //navigates to the delete user page
 function delete_user() {
-    window.location.href = "deleteuser.html";
+    window.location.href = "../Team-2-Tetris-Project/deleteuser.html";
 }
 
 // deletes a user
@@ -118,7 +118,7 @@ function deleteUser() {
                 if (oldPass == loginPassword) {
                     user.delete().then(() => {
                         if (confirm("Account Deleted!")) {
-                            window.location.replace("index.html");
+                            window.location.replace("../Team-2-Tetris-Project/index.html");
                         }
                       }).catch((error) => {
                         console.error("Error Deleting User: ", error);
@@ -144,7 +144,7 @@ function deleteUser() {
 
 //edit name navigation
 function edit_name() {
-    window.location.href = "editname.html";
+    window.location.href = "../Team-2-Tetris-Project/editname.html";
 }
 
 //change name function
@@ -170,7 +170,7 @@ function changeName() {
                     name: newName
                 }).then(() => {
                     if (confirm("Name Updated!")) {
-                        window.location.replace("profile.html");
+                        window.location.replace("../Team-2-Tetris-Project/profile.html");
                     }
                 })
                 .catch((error) => {
@@ -183,7 +183,7 @@ function changeName() {
 
 //edit email navigation
 function edit_email() {
-    window.location.href = "editemail.html";
+    window.location.href = "../Team-2-Tetris-Project/editemail.html";
 }
 
 //change name function
@@ -211,7 +211,7 @@ function changeEmail() {
                     email: newEmail
                 }).then(() => {
                     if (confirm("Email Updated!")) {
-                        window.location.replace("profile.html");
+                        window.location.replace("../Team-2-Tetris-Project/profile.html");
                     }
                 })
                 .catch((error) => {
@@ -224,11 +224,11 @@ function changeEmail() {
 
 //admin page navigation
 function admin() {
-    window.location.href = "admin.html";
+    window.location.href = "../Team-2-Tetris-Project/admin.html";
 }
 
 function profile() {
-    window.location.href = "profile.html";
+    window.location.href = "../Team-2-Tetris-Project/profile.html";
 }
 
 

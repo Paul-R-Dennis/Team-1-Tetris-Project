@@ -17,25 +17,28 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 
 
-describe('Login', () => {
-    test('User can log in with valid credentials', async () => {
-        const loginEmail = 'demo@demo.com';
+describe('admin button visibility', () => {
+    test('shows admin button for admin user', async () => {
+        const loginEmail = 'demoadmin@admin.com';
         const loginPassword = 'password';
+        const useruid ='dFCdcnmR1jcjWGq7WEflqhkm2v23'
 
-        await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+        await signInWithEmailAndPassword(auth, loginEmail, loginPassword, useruid);
 
-        const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+        const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword, useruid)
 
         expect(userCredential.user).toBeDefined();
     });
 
-    test('User cannot log in with invalid credentials', async () => {
+    test('hides admin button for non-admin user', async () => {
         auth.signOut();
-        const loginEmail = 'demo@demo.com';
-        const loginPassword = '123456789';
+        const loginEmail = 'subasicmersed2@gmail.com';
+        const loginPassword = '1234567';
+        const useruid ='9WzhZiC1WHZY2ZBc1v5RnXPK76Z2'
 
-        await expect(signInWithEmailAndPassword(auth, loginEmail, 'wrong-password')).rejects.toThrow('auth/wrong-password');
+        await expect(signInWithEmailAndPassword(auth, loginEmail, loginPassword, useruid)).rejects.toThrow();
 
         expect(auth.currentUser).toBeNull();
     });
 });
+

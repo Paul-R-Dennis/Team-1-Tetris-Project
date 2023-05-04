@@ -23,7 +23,7 @@ if (document.URL.includes("profile.html")) {
     }) 
 
 function change_password() {                                                // Navigates to change password page
-        window.location.href = "/changepassword.html";
+        window.location.href = "changepassword.html";
     }
 }
 
@@ -79,14 +79,14 @@ function changePassword() {                                                 // c
 
 if (document.URL.includes("profile.html")) {
   document.getElementById("home").addEventListener('click', function(){
-    window.location.replace("/index.html");
+    window.location.replace("index.html");
   });
 }
 
 
 //navigates to the delete user page
 function delete_user() {
-    window.location.href = "/deleteuser.html";
+    window.location.href = "deleteuser.html";
 }
 
 // deletes a user
@@ -144,7 +144,7 @@ function deleteUser() {
 
 //edit name navigation
 function edit_name() {
-    window.location.href = "/editname.html";
+    window.location.href = "editname.html";
 }
 
 //change name function
@@ -183,7 +183,7 @@ function changeName() {
 
 //edit email navigation
 function edit_email() {
-    window.location.href = "/editemail.html";
+    window.location.href = "editemail.html";
 }
 
 //change name function
@@ -224,11 +224,11 @@ function changeEmail() {
 
 //admin page navigation
 function admin() {
-    window.location.href = "/admin.html";
+    window.location.href = "admin.html";
 }
 
 function profile() {
-    window.location.href = "/profile.html";
+    window.location.href = "profile.html";
 }
 
 

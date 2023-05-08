@@ -17,19 +17,6 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = getAuth();
 
- describe('Firebase User', () => {
-     test('should find a user with the given email and password', async () => {
-         const loginEmail = 'demo@demo.com';
-         const loginPassword = 'password';
-         // sign in the user and check that the email is correct
-         await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-
-         const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-
-         expect(userCredential.user).toBeDefined();
-         auth.signOut();
-     });
-
 describe('Firebase Integration Tests', () => {
     const loginEmail = 'demo@demo.com';
     const loginPassword = 'password';
@@ -44,7 +31,7 @@ describe('Firebase Integration Tests', () => {
   
       // Verify that the UID matches the expected value
       expect(uid).toBe(expectedUid);
-    });
+    
 });
 
 describe('Firebase Integration Tests', () => {
